@@ -84,14 +84,15 @@ WSGI_APPLICATION = "ParkinAPI.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": 'parkingdb',
-        "USER": 'postgres',
-        "PASSWORD": 'parking123',
-        "HOST": 'localhost',
-        "PORT": '5432'
+        "ENGINE": "django.db.backends.mysql",  # Motor de la base de datos
+        "NAME": "parkingdb",                  # Nombre de tu base de datos
+        "USER": "root",                       # Usuario de MySQL
+        "PASSWORD": "",    # Contraseña del usuario
+        "HOST": "127.0.0.1",                  # Dirección del servidor MySQL
+        "PORT": "3306",                       # Puerto de MySQL (por defecto es 3306)
     }
 }
+
 
 
 # Password validation
@@ -136,6 +137,8 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'],
-    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.TokenAuthentication',]
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny'],
+    # Puedes mantener otras clases de autenticación si quieres ofrecer opciones
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
 }
+
